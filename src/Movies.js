@@ -7,6 +7,8 @@ const Movies = ({ movies, increment, createMovie, deleteMovie}) => {
     console.log(movies);
     return (
         <div>
+            The average rating of all films is: {(movies.reduce((a,b) => a + b.rating,0 )/movies.length).toFixed(1)}
+            <br></br>
             <button onClick = {createMovie}>Create A New Movie</button>
             <ul>
                 {

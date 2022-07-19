@@ -40,7 +40,9 @@ const createMovie = (movie) => {
 const updateMovie = (movie) => {
     return async(dispatch) => {
         movie = (await axios.put(`/api/movies/${movie.id}`, movie)).data;
+        const response = (await axios.get('/api/movies')).data;
         dispatch({ type: 'UPDATE_MOVIE', movie});
+        dispatch({ type: 'SET_MOVIES', movies: response});
     }
 }
 
